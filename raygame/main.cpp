@@ -11,7 +11,7 @@
 
 #include "raylib.h"
 #include "Sprite.h"
-
+#include "Button.h"
 int main()
 {
 	// Initialization
@@ -37,6 +37,14 @@ int main()
 	mySprite->x = screenWidth / 3;
 	mySprite->y = screenHeight / 3;
 
+	std::string buttons[]{
+		"character_robot_walk0.png",
+		"character_robot_walk1.png",
+		"character_robot_walk2.png",
+		"character_robot_walk3.png" };
+
+	Button * myButt = new Button(buttons, 4, screenWidth/2,screenHeight/2);
+
 	//--------------------------------------------------------------------------------------
 	float frameTime;
 	// Main game loop
@@ -51,9 +59,22 @@ int main()
 		// Draw
 		//----------------------------------------------------------------------------------
 		BeginDrawing();
+
+		if (CheckCollisionPointRec(GetMousePosition(), myButt->myRect)) {
+			myButt->CurrentState = Button::VisualStates::OVER;
+
+			if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+				myButt->CurrentState = Button::VisualStates::DOWN;
+			else
+				myButt->CurrentState = Button::VisualStates::NORMAL;
+
+		}
 		ClearBackground(WHITE);
 
 		mySprite->Draw(frameTime);
+
+		myButt->Draw(frameTime);
+
 		EndDrawing();
 		//----------------------------------------------------------------------------------
 	}

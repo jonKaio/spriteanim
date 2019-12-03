@@ -4,20 +4,10 @@ Sprite::Sprite()
 {
 }
 
-void Sprite::Draw()
-{
-	static float myFrameTime = 0;
-	static int fidx = 0;
-	DrawTexture(spriteCells[fidx], x, y, RAYWHITE);
-	myFrameTime += GetFrameTime();
-	if (myFrameTime >  frameRate) {
-		fidx++;
-		if (fidx >= frameCount)fidx = 0;
-		myFrameTime = 0;
-	}
-}
+
 void Sprite::Draw(float _frameTime)
 {
+
 	static float myFrameTime = 0;
 	static int fidx = 0;
 	DrawTexture(spriteCells[fidx], x, y, RAYWHITE);
@@ -31,6 +21,7 @@ void Sprite::Draw(float _frameTime)
 
 Sprite::Sprite(const std::string * filename, const int cellCount, const float _frameRate)
 {
+	testme = -5;
 	std::string tmp;
 	spriteCells = new Texture2D[cellCount];
 	for (int i = 0; i < cellCount; i++) {
