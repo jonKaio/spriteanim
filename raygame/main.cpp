@@ -12,77 +12,80 @@
 #include "raylib.h"
 #include "Sprite.h"
 #include "Button.h"
-int main()
-{
-	// Initialization
-	//--------------------------------------------------------------------------------------
-	int screenWidth = 800;
-	int screenHeight = 450;
+using namespace MyUITest;
 
-	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
-
-	SetTargetFPS(60);
-
-	std::string filenames[]{
-		"character_robot_walk0.png",
-		"character_robot_walk1.png",
-		"character_robot_walk2.png",
-		"character_robot_walk3.png",
-		"character_robot_walk4.png",
-		"character_robot_walk5.png",
-		"character_robot_walk6.png",
-		"character_robot_walk7.png" };
-
-	Sprite *mySprite = new Sprite(filenames, 8, 25);
-	mySprite->x = screenWidth / 3;
-	mySprite->y = screenHeight / 3;
-
-	std::string buttons[]{
-		"character_robot_walk0.png",
-		"character_robot_walk1.png",
-		"character_robot_walk2.png",
-		"character_robot_walk3.png" };
-
-	Button * myButt = new Button(buttons, 4, screenWidth/2,screenHeight/2);
-
-	//--------------------------------------------------------------------------------------
-	float frameTime;
-	// Main game loop
-	while (!WindowShouldClose())    // Detect window close button or ESC key
+	int main()
 	{
-		frameTime = GetFrameTime();
-		// Update
-		//----------------------------------------------------------------------------------
-		// TODO: Update your variables here
-		//----------------------------------------------------------------------------------
+		// Initialization
+		//--------------------------------------------------------------------------------------
+		int screenWidth = 800;
+		int screenHeight = 450;
 
-		// Draw
-		//----------------------------------------------------------------------------------
-		BeginDrawing();
+		InitWindow(screenWidth, screenHeight, "Basic Button Example.");
 
-		if (CheckCollisionPointRec(GetMousePosition(), myButt->myRect)) {
-			myButt->CurrentState = Button::VisualStates::OVER;
+		SetTargetFPS(60);
 
-			if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
-				myButt->CurrentState = Button::VisualStates::DOWN;
-			else
-				myButt->CurrentState = Button::VisualStates::NORMAL;
+		std::string filenames[]{
+			"character_robot_walk0.png",
+			"character_robot_walk1.png",
+			"character_robot_walk2.png",
+			"character_robot_walk3.png",
+			"character_robot_walk4.png",
+			"character_robot_walk5.png",
+			"character_robot_walk6.png",
+			"character_robot_walk7.png" };
 
+		Sprite* mySprite = new Sprite(filenames, 8, 25);
+		mySprite->x = screenWidth / 3;
+		mySprite->y = screenHeight / 3;
+
+		std::string buttons[]{
+			"blue_button00.png",
+			"blue_button01.png",
+			"blue_button02.png",
+			"blue_button03.png" };
+
+		Button* myButt = new Button(buttons, 4, 30, 30);
+
+		//--------------------------------------------------------------------------------------
+		float frameTime;
+		// Main game loop
+		while (!WindowShouldClose())    // Detect window close button or ESC key
+		{
+			frameTime = GetFrameTime();
+			// Update
+			//----------------------------------------------------------------------------------
+			// TODO: Update your variables here
+			//----------------------------------------------------------------------------------
+
+			// Draw
+			//----------------------------------------------------------------------------------
+			BeginDrawing();
+
+					myButt->CurrentState = Button::NORMAL;
+			if (CheckCollisionPointRec(GetMousePosition(), myButt->myRect)) {
+
+				myButt->CurrentState = Button::OVER;
+
+				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+					myButt->CurrentState = Button::DOWN;
+				
+
+			}
+			ClearBackground(WHITE);
+
+			mySprite->Draw(frameTime);
+
+			myButt->Draw(frameTime);
+
+			EndDrawing();
+			//----------------------------------------------------------------------------------
 		}
-		ClearBackground(WHITE);
 
-		mySprite->Draw(frameTime);
+		// De-Initialization
+		//--------------------------------------------------------------------------------------   
+		CloseWindow();        // Close window and OpenGL context
+		//--------------------------------------------------------------------------------------
 
-		myButt->Draw(frameTime);
-
-		EndDrawing();
-		//----------------------------------------------------------------------------------
+		return 0;
 	}
-
-	// De-Initialization
-	//--------------------------------------------------------------------------------------   
-	CloseWindow();        // Close window and OpenGL context
-	//--------------------------------------------------------------------------------------
-
-	return 0;
-}
