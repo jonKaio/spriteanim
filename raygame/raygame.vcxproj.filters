@@ -13,10 +13,53 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="MyResources">
+      <UniqueIdentifier>{e52af750-4ff9-4088-813d-f73441545fff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk0.png">
+      <Filter>MyResources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk1.png">
+      <Filter>MyResources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk2.png">
+      <Filter>MyResources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk3.png">
+      <Filter>MyResources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk4.png">
+      <Filter>MyResources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk5.png">
+      <Filter>MyResources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk6.png">
+      <Filter>MyResources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk7.png">
+      <Filter>MyResources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -131,7 +131,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk0.png" />
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk1.png" />
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk2.png" />
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk3.png" />
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk4.png" />
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk5.png" />
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk6.png" />
+    <Image Include="..\..\..\..\Downloads\kenney_tooncharacters1\Robot\PNG\Poses HD\character_robot_walk7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

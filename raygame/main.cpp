@@ -10,6 +10,7 @@
 ********************************************************************************************/
 
 #include "raylib.h"
+#include "Sprite.h"
 
 int main()
 {
@@ -21,11 +22,27 @@ int main()
 	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
 	SetTargetFPS(60);
-	//--------------------------------------------------------------------------------------
 
+	std::string filenames[]{
+		"character_robot_walk0.png",
+		"character_robot_walk1.png",
+		"character_robot_walk2.png",
+		"character_robot_walk3.png",
+		"character_robot_walk4.png",
+		"character_robot_walk5.png",
+		"character_robot_walk6.png",
+		"character_robot_walk7.png" };
+
+	Sprite *mySprite = new Sprite(filenames, 8, 25);
+	mySprite->x = screenWidth / 3;
+	mySprite->y = screenHeight / 3;
+
+	//--------------------------------------------------------------------------------------
+	float frameTime;
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
+		frameTime = GetFrameTime();
 		// Update
 		//----------------------------------------------------------------------------------
 		// TODO: Update your variables here
@@ -34,11 +51,9 @@ int main()
 		// Draw
 		//----------------------------------------------------------------------------------
 		BeginDrawing();
+		ClearBackground(WHITE);
 
-		ClearBackground(RAYWHITE);
-
-		DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
-
+		mySprite->Draw(frameTime);
 		EndDrawing();
 		//----------------------------------------------------------------------------------
 	}
