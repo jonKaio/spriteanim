@@ -34,13 +34,14 @@ namespace MyUITest {
 	///Normal,Over,Down,Disabled
 	Button::Button(const std::string* filename, const int cellCount, int _x, int _y)
 	{
-		std::string tmp;
+	
 		spriteCells = new Texture2D[cellCount];
 		for (int i = 0; i < cellCount; i++) {
-			tmp =  filename[i];
-			spriteCells[i] = LoadTexture(tmp.c_str());
+			
+			spriteCells[i] = LoadTexture(filename[i].c_str());
 		}
 		frameCount = cellCount;
+		return;
 
 		myRect.x = _x;
 		myRect.y = _y;
